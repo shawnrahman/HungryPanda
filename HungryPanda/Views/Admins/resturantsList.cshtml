@@ -1,0 +1,104 @@
+﻿
+
+@model HungryPanda.ViewModels.CustomerOrdersViewModels
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    @Scripts.Render("~/bundles/jquery")
+
+
+    @Styles.Render("~/Content/Site.css")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    @*@RenderSection("scripts", required: false)*@
+    @Styles.Render("~/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css")
+    @Styles.Render("~/Content/vendor/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/Content/fonts/themify/themify-icons.css")
+    @Styles.Render("~/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css")
+    @Styles.Render("~/Content/fonts/elegant-font/html-css/style.css")
+    @Styles.Render("~/Content/vendor/animate/animate.css")
+    @Styles.Render("~/Content/vendor/css-hamburgers/hamburgers.min.css")
+    @Styles.Render("~/Content/vendor/animsition/css/animsition.min.css")
+    @Styles.Render("~/Content/vendor/select2/select2.min.css")
+    @Styles.Render("~/Content/vendor/daterangepicker/daterangepicker.css")
+    @Styles.Render("~/Content/vendor/slick/slick.css")
+    @Styles.Render("~/Content/vendor/lightbox2/css/lightbox.min.css")
+    @Styles.Render("~/Content/css/util.css")
+    @Styles.Render("~/Content/css/main.css")
+    <link rel="stylesheet" href="css/starability-all.min.css">
+    <!--===============================================================================================-->
+</head>
+<body class="animsition">
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+
+    <div class="mt-5 m-b-99 centered ">
+        <h2 class="text-center">Resturants</h2>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    
+                    <th>Resturant Name</th>
+                    <th>Join Date</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Area</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model.ResturantOwner)
+                {
+
+
+                    float total = 0;
+
+                    <tr>
+                        <td>@r.ResturantName</td>
+                        <td>@r.JoinDate</td>
+                        <td>
+                            @r.Email
+
+                        </td>
+                        <td>
+                            @r.Address
+                         </td>  
+                         <td>
+                            @r.Area.Name
+
+                         </td>  
+
+                        @*<td>
+                                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Review
+                                </button>
+                            </td>*@
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/Content/vendor/jquery/jquery-3.2.1.min.js")*@
+    @Scripts.Render("~/Content/vendor/animsition/js/animsition.min.js")
+    @Scripts.Render("~/Content/vendor/bootstrap/js/popper.js")
+    @Scripts.Render("~/Content/vendor/bootstrap/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/vendor/select2/select2.min.js")
+    @Scripts.Render("~/Content/vendor/slick/slick.min.js")
+    @Scripts.Render("~/Content/js/slick-custom.js")
+    @Scripts.Render("~/Content/vendor/countdowntime/countdowntime.js")
+    @Scripts.Render("~/Content/vendor/lightbox2/js/lightbox.min.js")
+    @Scripts.Render("~/Content/vendor/sweetalert/sweetalert.min.js")
+    @Scripts.Render("~/Content/js/main.js")
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+</html>

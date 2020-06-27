@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container " style="width: 40%; margin-top: 50px; ">
+
+    @using (Html.BeginForm("Login", "Authentication", FormMethod.Post,
+                                      new { enctype = "multipart/form-data", @class = "form-signin" }))
+    {
+
+        if (ViewBag.messege != null)
+        {
+            <div class="alert alert-danger">
+                <strong>@ViewBag.messege</strong>
+            </div>
+        }
+        <h1 class=" centered  font-weight-normal ">Sign in</h1>
+
+        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+        <button class="btn btn-lg  btn-dark btn-block" type="submit">Sign In</button>
+
+        <button class="centered nav-link " type="button">@Html.ActionLink("Create Account", "Register", "Customer")</button>
+
+    }
+
+</div>
+

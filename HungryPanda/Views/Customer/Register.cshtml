@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container " style="width: 40%; margin-top: 50px; ">
+
+    @using (Html.BeginForm("Register", "Customer", FormMethod.Post,
+                                      new { enctype = "multipart/form-data", @class = "form-signin" }))
+    {
+        <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+
+        <label for="inputName" class="sr-only"> Name</label>
+        <input name="Name" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+
+        <label for="email" class="sr-only"> Email</label>
+        <input name="Email" type="email" id="email" class="form-control" placeholder="Email" required autofocus>
+
+        <label for="address" class="sr-only"> address</label>
+        <input name="Address" id="address" class="form-control" placeholder="Address" required autofocus>
+
+        <label for="mobile" class="sr-only"> mobile</label>
+        <input name="Phone" id="mobile" class="form-control" placeholder="Mobile" required autofocus>
+
+        <label for="mobile" class="sr-only"> mobile</label>
+        <input name="DOB" type="datetime" id="DOB" class="form-control" placeholder="DOB eg (dd/mm/yyy)" required autofocus>
+
+
+
+
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+        <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
+        <input id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required>
+
+        <p>Gender</p>
+        <input type="checkbox" name="Gender" value="1"><span> Male </span>
+        <input type="checkbox" name="Gender" value="2"><span> Female </span>
+        <input type="checkbox" name="Gender" value="3"><span> Other </span>
+        
+        <input hidden name="Role" type="text" id="inputPassword" class="form-control" placeholder="Role" value="customer">
+
+
+
+
+        <button class="btn btn-lg  btn-dark btn-block" type="submit">Register</button>
+    }
+    <a class="nav-link active" href="@Url.Action("Index","Authentication")">Back to Login</a>
+
+
+</div>

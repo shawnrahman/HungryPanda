@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Resturant Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model HungryPanda.ViewModels.ResturantMenuViewModel
+
+@*<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-01.jpg);">
+        <h2 class="l-text2 t-center header-title">
+            Resturant Name
+        </h2>
+    </section>*@
+
+<div class="row">
+    <div class="col-md-3">
+        <div class=" " style="margin:10%;  margin-top: 5%;">
+            <div class="card-header">
+                Category
+            </div>
+            <ul class="list-group list-group-flush">
+
+                @foreach (var menucat in Model.ResturantMenuCategories)
+                {
+                    <li class="list-group-item">
+                        <a href="#@menucat.Name">@menucat.Name</a>
+
+                    </li>
+
+
+                }
+
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-9">
+
+
+        @foreach (var menucat in Model.ResturantMenuCategories)
+        {
+            <div id="@menucat.Name"> </div>
+            <div style="margin-top:0%"> </div>
+
+
+            <div class="card " style="margin: 0%; margin-top: 5%">
+                <div class="card-header text-center">
+                    @menucat.Name
+                </div>
+                <ul class="list-group list-group-flush">
+
+                    @foreach (var menuItem in Model.ResturantMenu)
+                    {
+                        if (menucat.Id == menuItem.ResturantMenuCategoryId)
+                        {
+                            <li class="list-group-item">
+                                <h6 class="menue-list">
+                                    @menuItem.FoodItem
+                                </h6>
+                                <p class="menue-list">1:1</p>
+                                <p class="menue-list ">@menuItem.Price Tk @menuItem.Id</p>
+                                <a id="@menuItem.Id" class=" add-cart btn btn-dark menue-list float-right mr-auto" href="#" role="button">Add to cart</a>
+                            </li>
+
+
+
+
+                        }
+                    }
+
+
+
+                </ul>
+            </div>
+        }
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+@section scripts {
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.add-cart').on('click', function () {
+            var itemId = $(this).attr("id");
+
+
+          $.ajax({
+                type: 'GET',
+              data: { itemId: itemId },
+                url: '@Url.Action("AddToCart","Cart")',
+                success: function (result) {
+
+
+                    alert("Item Added To Cart");
+
+                    // var a = '<option value="-1"> Area</option>';
+                    //for (var i = 0; i < result.length; i++) {
+                    //    a += '<option value="' + result[i].Id + '">' + result[i].Name + '</option>';
+
+                    //}
+                    //$('.targetAreas').html(a);
+                }
+            });
+        });
+
+    });
+
+    </script>
+
+
+}
+
+

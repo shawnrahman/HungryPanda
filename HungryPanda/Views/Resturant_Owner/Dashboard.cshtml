@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if ( (string)Session["role"] != "resturantOwner")
+    {
+        Response.Redirect("~/Authentication");
+
+    }
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class=" " style="margin:10%;  margin-top: 15%;">
+            <div class=" card-header">
+                Resturant Owner Dashboard
+            </div>
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">
+                    <a target="contentFrame" href=@Url.Action("ResturantOwner_profile", "Resturant_Owner")>Profile</a>
+                </li>
+                <li class="list-group-item">
+                    <a target="contentFrame" href=@Url.Action("edit_resturantowner_profile", "Resturant_Owner")>Edit Profile</a>
+                </li>
+                <li class="list-group-item">
+                    <a target="contentFrame" href=@Url.Action("change_password","Resturant_Owner")>Change password</a>
+                </li>
+
+                <li class="list-group-item">
+                    <a  href=@Url.Action("addMenu","Resturant_Owner")>Add Menu</a>
+                </li>
+
+                <li class="list-group-item">
+                    <a target="contentFrame" href=@Url.Action("orders_resturantOwner","Resturant_Owner")>Orders</a>
+                </li>
+
+                <li class="list-group-item">
+                    <a href="../../index.html">
+                        <- Back
+                    </a>
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        <iframe name="contentFrame" scrolling="no" frameborder="0" width="900px" height="800px" src=@Url.Action("ResturantOwner_profile","Resturant_Owner")></iframe>
+
+    </div>
+
+</div>

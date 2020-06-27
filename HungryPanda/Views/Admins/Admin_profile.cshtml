@@ -1,0 +1,132 @@
+﻿@model HungryPanda.Models.Admin
+@{
+	Layout = null;
+}
+
+<fieldset>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>User Profile</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		@Styles.Render("~/Content/vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css")
+		
+		<!--===============================================================================================-->
+		<style type="text/css">
+			input.hidden {
+				position: absolute;
+				left: -9999px;
+			}
+
+			#profile-image1 {
+				cursor: pointer;
+				width: 100px;
+				height: 100px;
+				border: 2px solid black;
+			}
+
+			.tital {
+				font-size: 16px;
+				font-weight: 500;
+			}
+
+			.bot-border {
+				border-bottom: 1px #f8f8f8 solid;
+				margin: 5px 0 5px 0
+			}
+
+			.fixed-panel {
+				min-height: 420;
+				max-height: 420;
+				min-width: 509;
+				text-align: center;
+				margin-top: 5%;
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+
+
+
+
+
+		<div class="container centered fixed-panel">
+
+			<div class="panel   panel-default">
+				<div class="panel-heading">  <h4 style="align:right;">User Profile</h4></div>
+				<div class="panel-body">
+
+					<div class="box box-info">
+
+						<div class="box-body">
+							
+							<div class="col-sm-7">
+								<h4 style="color:grey;">@Model.Name </h4></span>
+								<span><p>@Model.Role</p></span>
+							</div>
+							<div class="clearfix"></div>
+							<hr style="margin:5px 0 5px 0;">
+
+
+							<div class="col-sm-5 col-xs-6 tital ">First Name:</div><div class="col-sm-7">MD</div>
+							<div class="clearfix"></div>
+							<div class="bot-border"></div>
+
+							<div class="col-sm-5 col-xs-6 tital ">Last Name:</div><div class="col-sm-7">@Model.Name</div>
+							<div class="clearfix"></div>
+							<div class="bot-border"></div>
+
+							<div class="col-sm-5 col-xs-6 tital ">Email:</div><div class="col-sm-7">@Model.Email</div>
+
+							<div class="clearfix"></div>
+							<div class="bot-border"></div>
+
+							<div class="col-sm-5 col-xs-6 tital ">Address:</div><div class="col-sm-7">@Model.Address</div>
+
+							<div class="clearfix"></div>
+							<div class="bot-border"></div>
+
+							<div class="col-sm-5 col-xs-6 tital ">Mobile No:</div><div class="col-sm-7">@Model.Phone</div>
+
+							<div class="clearfix"></div>
+							<div class="bot-border"></div>
+
+
+
+							<!-- /.box-body -->
+						</div>
+						<!-- /.box -->
+
+					</div>
+
+
+				</div>
+
+				
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+ 
+
+
+ 
+
+
+
+
+
+
+		
+	</body>
+</html>
+</fieldset>

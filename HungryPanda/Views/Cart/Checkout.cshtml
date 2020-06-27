@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["user"] == null)
+    {
+        Response.Redirect("~/Authentication");
+    }
+}
+
+<h2>Checkout Complete </h2>
+ 

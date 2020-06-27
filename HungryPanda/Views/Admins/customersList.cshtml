@@ -1,0 +1,132 @@
+﻿
+
+@model IEnumerable<HungryPanda.Models.Customer>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/DataTables/css/dataTables.bootstrap.css")
+    @Styles.Render("~/Content/DataTables/css/dataTables.jquery.css")
+
+    @Styles.Render("~/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css")
+    @Styles.Render("~/Content/vendor/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/Content/fonts/themify/themify-icons.css")
+    @Styles.Render("~/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css")
+    @Styles.Render("~/Content/fonts/elegant-font/html-css/style.css")
+    @Styles.Render("~/Content/vendor/animate/animate.css")
+    @Styles.Render("~/Content/vendor/css-hamburgers/hamburgers.min.css")
+    @Styles.Render("~/Content/vendor/animsition/css/animsition.min.css")
+    @Styles.Render("~/Content/vendor/select2/select2.min.css")
+    @Styles.Render("~/Content/vendor/daterangepicker/daterangepicker.css")
+    @Styles.Render("~/Content/vendor/slick/slick.css")
+    @Styles.Render("~/Content/vendor/lightbox2/css/lightbox.min.css")
+    @Styles.Render("~/Content/css/util.css")
+    @Styles.Render("~/Content/css/main.css")
+ 
+     
+    <!--===============================================================================================-->
+</head>
+<body class="animsition mb-auto">
+
+
+    <div class="mt-5 m-b-99 centered ">
+        <h2 class="text-center">Customers</h2>
+
+        <table id="datatable" class="table table-condensed">
+            <thead>
+                <tr>
+
+                    <th>Customer Name</th>
+                    <th>Gender</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model)
+                {
+
+
+                    float total = 0;
+
+                    <tr>
+                        <td>@c.Name</td>
+                        <td>@c.Gender</td>
+                        @{
+                            DateTime dt = new DateTime();
+                            dt = c.DOB;
+                            int age = (DateTime.Now.Year - dt.Year);
+                            if (dt > DateTime.Now.AddYears(-age))
+                            { age--; }
+
+                        }
+
+                        <td>@age</td>
+                        <td>@c.Email</td>
+                        <td>@c.Address</td>
+                        <td>@c.Phone</td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/Content/vendor/jquery/jquery-3.2.1.min.js")
+    @Scripts.Render("~/Content/vendor/animsition/js/animsition.min.js")
+
+    @Scripts.Render("~/Content/vendor/bootstrap/js/popper.js")
+    @Scripts.Render("~/Content/vendor/bootstrap/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/vendor/select2/select2.min.js")
+    @Scripts.Render("~/Content/vendor/slick/slick.min.js")
+    @Scripts.Render("~/Content/js/slick-custom.js")
+    @Scripts.Render("~/Content/vendor/countdowntime/countdowntime.js")
+    @Scripts.Render("~/Content/vendor/lightbox2/js/lightbox.min.js")
+    @Scripts.Render("~/Content/vendor/sweetalert/sweetalert.min.js")
+    @Scripts.Render("~/Content/js/main.js")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+
+
+   
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                console.log("hello customer");
+        $("#datatable").DataTable();
+
+
+    });
+
+        </script>
+
+
+    
+
+    
+</body>
+</html>

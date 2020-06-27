@@ -1,0 +1,150 @@
+﻿@model HungryPanda.Models.Admin
+
+@{
+    Layout = null;
+}
+
+
+
+
+<fieldset>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+        <title>User Profile - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @Styles.Render("~/Content/vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css")
+        <style type="text/css">
+            input.hidden {
+                position: absolute;
+                left: -9999px;
+            }
+
+            #profile-image1 {
+                cursor: pointer;
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+            }
+
+            .tital {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .bot-border {
+                border-bottom: 1px #f8f8f8 solid;
+                margin: 5px 0 5px 0
+            }
+
+            .fixed-panel {
+                min-height: 420;
+                max-height: 420;
+                min-width: 509;
+            }
+
+            .btn-dark {
+                background-color: black !important;
+                color: white;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container fixed-panel">
+
+            <div class="panel panel-default ">
+                <div class="panel-heading">
+                    <h4 style="text-align:center;">Edit Profile</h4>
+                </div>
+                <div class="panel-body">
+                    @if (ViewBag.message != null)
+                    {
+                        <div class="alert alert-info">
+                            <strong>@ViewBag.message</strong>
+                        </div>
+                    }
+                    <div class="box box-info">
+                        <div class="box-body">
+
+                            <div class="col-sm-7">
+                                <h4 style="color: grey;">@Model.Name </h4>
+                                </span>
+                                <span>
+                                    <p>@Model.Role</p>
+                                </span>
+                            </div>
+                            @using (Html.BeginForm("edit_admin_profile", "Admins", FormMethod.Post,
+                                              new { enctype = "multipart/form-data", @class = "form-signin" }))
+                            {
+                                <div class="clearfix"></div>
+                                <hr style="margin:5px 0 5px 0;">
+
+
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <div class="col-sm-5 col-xs-6 tital ">Name:</div>
+                                <div class="col-sm-7">
+                                    <div class="form-group col-sm*">
+
+                                        <input class="form-control" name="Name" id="Last_Name" type="text" value=@Model.Name>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <div class="col-sm-5 col-xs-6 tital ">Email:</div>
+                                <div class="col-sm-7">
+                                    <div class="form-group col-sm*">
+                                        <input class="form-control" name="Email" id="Email" type="text" value=@Model.Email>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <div class="col-sm-5 col-xs-6 tital ">Address:</div>
+                                <div class="col-sm-7">
+                                    <div class="form-group col-sm*">
+                                        <input class="form-control" name="Address" id="Address" type="text" value=@Model.Address>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="bot-border"></div>
+                                <div class="col-sm-5 col-xs-6 tital ">Mobile No:</div>
+                                <div class="col-sm-7">
+                                    <div class="form-group col-sm*">
+                                        <input class="form-control" name="Phone" id="Mobile_No" type="text" value=@Model.Phone>
+                                    </div>
+                                    <button class="btn btn-lg  btn-dark btn-block" type="submit">Update</button>
+                                </div>
+                            }
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+
+                </div>
+                <script>
+                    $(function () {
+                        $('#profile-image1').on('click', function () {
+                            $('#profile-image-upload').click();
+                        });
+                    });
+                </script>
+
+
+
+
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+        </script>
+    </body>
+</html>
+</fieldset>

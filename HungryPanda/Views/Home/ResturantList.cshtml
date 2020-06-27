@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Resturant List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model HungryPanda.ViewModels.ResturantListViewModel
+<div class="container">
+    @*<div class=" mt-5 mb-5 container row">
+            <div class="centered">
+                <input placeholder="Search" type="text" name="search" id="search">
+                <a class="btn btn-dark" href="search.html">Search</a>
+            </div>
+
+        </div>*@
+</div>
+@*colum for cusine list*@
+<div class="row">
+    <div class="col-md-3 " style="border-right:  1px solid #DEDEDE;border-top: .5px solid  1px solid #DEDEDE;">
+
+        <div class="card " style="margin: 5%">
+            @*<div class="card-header">
+                    Cuisines
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <input type="checkbox" aria-label="Checkbox for following text input"> Burger
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" aria-label="Checkbox for following text input"> Burger
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" aria-label="Checkbox for following text input"> Pizza
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" aria-label="Checkbox for following text input"> Chineese
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" aria-label="Checkbox for following text input"> Italian
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" aria-label="Checkbox for following text input"> Continental
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" aria-label="Checkbox for following text input"> Biryani
+                    </li>
+                </ul>*@
+        </div>
+    </div>
+
+
+    @*Colun for resturant list*@
+    <div class="col-md-9" style="border-top:  1px solid #DEDEDE;">
+
+        @foreach (var resturants in Model.ResturantOwners)
+        {
+
+            <div class="single-resturant">
+                <!-- <img height="150px" src="/images/banner-01.jpg" class="resturant-thumb" alt=""> -->
+                <div class="resturant-info">
+                    <h3>@resturants.ResturantName</h3>
+                    <div>
+                        <p class="inline-p">Minimum Order</p>
+                        <p class="inline-p">Delivery fee</p>
+                        <p class="inline-p">Delivery Time</p>
+                    </div>
+                    <div>
+                        <p class="inline-p2">300 tk</p>
+                        <p class="inline-p2">60 tk</p>
+                        <p class="inline-p2">60 min</p>
+                        <p class="inline-p2">RATING:3/4</p>
+                        <a class="btn btn-dark button-menu" href="@Url.Action("ResturantMenu", "Home", new { resturantId = resturants.Id }, null)
+" role="button">View Menu</a>
+
+
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+

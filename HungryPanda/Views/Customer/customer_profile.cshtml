@@ -1,0 +1,232 @@
+﻿@model HungryPanda.Models.Customer
+@{
+    Layout = null;
+
+    if (Model.Role != "customer")
+    {
+        Response.Redirect("~/Authentication");
+
+    }
+
+
+
+
+
+}
+
+<fieldset>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>User Profile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+         @Styles.Render("~/Content/vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css")
+
+
+        @*<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">*@
+        <!--===============================================================================================-->
+        <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!--===============================================================================================-->
+        <style type="text/css">
+            input.hidden {
+                position: absolute;
+                left: -9999px;
+            }
+
+            #profile-image1 {
+                cursor: pointer;
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+            }
+
+            .tital {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .bot-border {
+                border-bottom: 1px #f8f8f8 solid;
+                margin: 5px 0 5px 0
+            }
+
+            .fixed-panel {
+                min-height: 420;
+                max-height: 420;
+                min-width: 509;
+                text-align: center;
+                margin-top: 5%;
+            }
+        </style>
+        @*<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>*@
+    </head>
+    <body>
+
+
+
+
+
+        <div class="container centered fixed-panel">
+
+            <div class="panel   panel-default">
+                <div class="panel-heading">  <h4 style="align:center;">@Model.Role Profile</h4></div>
+                <div class="panel-body">
+
+                    <div class="box box-info">
+
+                        <div class="box-body">
+                               
+ 
+                                <!-- /input-group -->
+                             <div class="col-md-12">
+                                <h4 style="color:grey;">@Model.Name </h4></span>
+                                <span><p>@Model.Role</p></span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <hr style="margin:5px 0 5px 0;">
+
+
+                            <div class="col-sm-5 col-xs-6 tital ">Name:</div><div class="col-sm-7">@Model.Name</div>
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+
+                            <div class="col-sm-5 col-xs-6 tital ">Email:</div><div class="col-sm-7">@Model.Email</div>
+
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+
+                            <div class="col-sm-5 col-xs-6 tital ">Address:</div><div class="col-sm-7">@Model.Address</div>
+
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+
+                            <div class="col-sm-5 col-xs-6 tital ">Mobile No:</div><div class="col-sm-7">@Model.Phone</div>
+
+                            <div class="clearfix"></div>
+                            <div class="bot-border"></div>
+
+
+
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+
+                    </div>
+
+
+                </div>
+
+                <script>
+
+                    $(function () {
+                        $('#profile-image1').on('click', function () {
+                            $('#profile-image-upload').click();
+                        });
+                    });
+                </script>
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Back to top -->
+        <div class="btn-back-to-top bg0-hov" id="myBtn">
+            <span class="symbol-btn-back-to-top">
+                <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+            </span>
+        </div>
+        <!-- Container Selection1 -->
+        <div id="dropDownSelect1"></div>
+
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+        <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+        <script type="text/javascript">
+            $(".selection-1").select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $('#dropDownSelect1')
+            });
+        </script>
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+        <script type="text/javascript" src="js/slick-custom.js"></script>
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+        <!--===============================================================================================-->
+        <script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
+        <script type="text/javascript">
+            $('.block2-btn-addcart').each(function () {
+                var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+                $(this).on('click', function () {
+                    swal(nameProduct, "is added to cart !", "success");
+                });
+            });
+
+            $('.block2-btn-addwishlist').each(function () {
+                var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+                $(this).on('click', function () {
+                    swal(nameProduct, "is added to wishlist !", "success");
+                });
+            });
+        </script>
+        <!--===============================================================================================-->
+        <script src="js/main.js"></script>
+    </body>
+</html>
+</fieldset>

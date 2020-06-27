@@ -1,0 +1,151 @@
+﻿
+
+
+@using HungryPanda.Controllers
+@using HungryPanda.Models
+
+<header class="header1">
+    <!-- Header desktop -->
+    <div class="container-menu-header">
+        <div class="topbar">
+            <div class="topbar-social">
+                <a href="#" class="topbar-social-item fa fa-facebook"></a>
+                <a href="#" class="topbar-social-item fa fa-instagram"></a>
+                <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+                <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+            </div>
+
+            <span class="topbar-child1">
+                Free shipping for standard order over 500 Tk
+            </span>
+
+            <div class="topbar-child2">
+                <span class="topbar-email">
+                    mail@hungrypanda.com
+                </span>
+
+
+            </div>
+        </div>
+
+        <div class="wrap_header">
+            <!-- Logo -->
+            <h1 class="navbar-brand logo">
+                @Html.ActionLink("Hungry Panda", "Index", "Home")
+            </h1>
+
+
+
+            <div class="header-icons">
+
+
+
+                @*<a style="margin-right: 5%" href="dashboard_customer.html" class="header-wrapicon1 dis-block">
+                        <img src="@Url.Content("~/Content/images/icons/icon-header-01.png")" class="header-icon1" alt="ICON">
+
+                    </a>*@
+
+                @if (Session["user"] != null)
+                {
+
+
+                    if ((string)Session["role"] == "customer")
+                    {
+                        var user = Session["user"] as Customer;
+
+                        <p class="mr-3">Welcome:<a class="font-weight-bold" href="@Url.Action("Dashboard","Customer")"> @user.Name </a></p> <span>|<a href="@Url.Action("Logout","Authentication")">Logout</a></span>
+
+                    }
+                    else if ((string)Session["role"] == "admin")
+                    {
+                        var user = Session["user"] as Admin;
+
+                        <p class="mr-3">Welcome:<a class="font-weight-bold" href="@Url.Action("Dashboard","Admins")"> @user.Name </a></p> <span>|<a href="@Url.Action("Logout","Authentication")">Logout</a></span>
+
+                    }
+                    else if ((string)Session["role"] == "resturantOwner")
+                    {
+                        var user = Session["user"] as ResturantOwner;
+
+                        <p class="mr-3">Welcome:<a class="font-weight-bold" href="@Url.Action("Dashboard","Resturant_Owner")"> @user.ResturantOwnerName </a></p> <span>|<a href="@Url.Action("Logout","Authentication")">Logout</a></span>
+
+                    }
+
+                }
+                else
+                {
+                    <a href="@Url.Action("Index","Authentication")" class="btn btn-dark ">Login/Register </a>
+
+                }
+
+
+
+
+
+
+                <span class="linedivide1"></span>
+
+                <div class="header-wrapicon2">
+
+                    <img src="@Url.Content("~/Content/images/icons/icon-header-02.png")" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                    <span class="header-icons-noti">3</span>
+
+                    <!-- Header cart noti -->
+                    <div class="header-cart header-dropdown">
+                        <ul class="header-cart-wrapitem">
+                            @if (Session["Cart"] != null)
+                            {
+
+                                foreach (var item in (List<CartItem>)Session["cart"])
+                                {
+
+
+
+                                    <li class="header-cart-item">
+                                        <div class="header-cart-item-img">
+                                            <img src="@Url.Content("~/Content/images/icons/item-cart-01.jpg")" alt="IMG">
+                                        </div>
+
+                                        <div class="header-cart-item-txt">
+                                            <a href="#" class="header-cart-item-name">
+                                                @item.OrderItem.FoodItem
+                                            </a>
+
+                                            <span class="header-cart-item-info">
+                                                @item.OrderItem.Price
+                                            </span>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+
+                        <div class="header-cart-total">
+                            Total: 1000 tk
+                        </div>
+
+                        <div class="header-cart-buttons">
+                            <div class="header-cart-wrapbtn">
+                                <!-- Button -->
+                                <a href="@Url.Action("Index","Cart")" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                    View Cart
+                                </a>
+                            </div>
+
+                            <div class="header-cart-wrapbtn">
+                                <!-- Button -->
+                                <a href="@Url.Action("Checkout","Cart")" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                    Check Out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</header>
